@@ -9,8 +9,6 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-require("./index.css");
-
 var _ui = require("./ui");
 
 var _utilities = _interopRequireDefault(require("./utilities"));
@@ -88,7 +86,8 @@ function (_Component) {
 
       var _this$props = this.props,
           columns = _this$props.columns,
-          data = _this$props.data;
+          data = _this$props.data,
+          prefilter = _this$props.prefilter;
       var filter = this.state.filter;
 
       if (prevProps.columns !== columns || prevProps.data !== data) {
@@ -104,6 +103,9 @@ function (_Component) {
             _this3.onFilter(filter);
           }
         });
+      }
+      else if (prefilter !== prevProps.prefilter){
+        _this3.onFilter(prefilter);
       }
     }
   }, {
