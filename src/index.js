@@ -36,7 +36,7 @@ class DataTableExtensions extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { columns, data } = this.props;
+    const { columns, data, prefilter } = this.props;
     const { filter } = this.state;
 
     if (prevProps.columns !== columns || prevProps.data !== data) {
@@ -53,6 +53,9 @@ class DataTableExtensions extends Component {
         }
       });
     }
+    else if (prefilter !== prevProps.prefilter){
+        this.onFilter(prefilter);
+      }
   }
 
   onDataRender() {
